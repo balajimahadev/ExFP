@@ -1,6 +1,68 @@
 import requests
 import json
 
+
+# Exercises 7-12
+
+# # Ex 7
+# CONV_FEET_2_METRES = 0.09290304
+
+def get_non_negative_int(prompt):
+    while True:
+        try:
+            value = int(input(prompt))
+        except ValueError:
+            print("Sorry i don't understand that")
+
+        if value < 0:
+            print("The dimensions cannot be negative")
+        else:
+            break
+    return value
+
+
+# length = get_non_negative_int("What is the length of the room in feet?")
+# breadth = get_non_negative_int("What is the length of the room in feet?")
+
+# print("you entered dimesnions of {} feet by {} feet".format(length, breadth))
+
+# area_feet = length * breadth
+# area_metre = area_feet * CONV_FEET_2_METRES
+
+# print("The area is")
+# print("{} square feet".format(area_feet))
+# print("{} square metres".format(area_metre))
+
+
+# #Ex 8
+# num_people = get_non_negative_int("How many people at the party?")
+# num_pizza = get_non_negative_int("How many pizza's ?")
+# num_slices = get_non_negative_int("How many slices per pizza?")
+
+# print("{} people with {} slices of pizza".format(num_people, num_slices))
+# total_slices = num_pizza * num_slices
+# per_person = int(total_slices / num_people)
+# rem_slices = int(total_slices % num_people)
+# print("Each person gets {} pieces of pizza".format(per_person))
+# print("There are {} leftover pieces".format(rem_slices))
+
+
+# Ex9
+
+ONE_GALLON = 350
+
+length = get_non_negative_int("What is the length of the room in feet?")
+breadth = get_non_negative_int("What is the length of the room in feet?")
+
+print("you entered dimesnions of {} feet by {} feet".format(length, breadth))
+
+area_feet = length * breadth
+
+req = int(area_feet/ONE_GALLON) + int(1 if ( % ONE_GALLON) > 0 else 0)
+
+print(" you will need to purcahse {} gallomns of paint to cover {} square feet".format(
+    area_feet, req))
+
 def validate_input(prompt):
     while True:
         try:
